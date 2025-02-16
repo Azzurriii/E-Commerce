@@ -1,0 +1,36 @@
+{
+	"compilerOptions": {
+		"sourceMap": true,
+		"outDir": "dist",
+		"target": "ES2018",
+		"module": "CommonJS",
+		"strict": true,
+		"lib": ["ESNext"],
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"baseUrl": ".",
+		"paths": {
+			"@root/*": ["./*"],
+			"@src/*": ["src/*"],
+			"@env/*": ["env/*"],
+			"@configs/*": ["src/configs/*"],
+			"@controllers/*": ["src/controllers/*"],
+			"@handlers/*": ["src/handlers/*"],
+			"@helpers/*": ["src/helpers/*"],
+			"@middlewares/*": ["src/middlewares/*"],
+			"@models/*": ["src/models/*"],
+			"@router/*": ["src/router/*"],
+			"@socket/*": ["src/socket/*"],
+			"@types/*": ["src/types/*"],
+			"@utils/*": ["src/utils/*"],
+			"@constants/*": ["src/constants/*"],
+			"@services/*": ["src/services/*"],
+			"@queues/*": ["src/queues/*"],
+			"@workers/*": ["src/workers/*"],
+			"@interfaces/*": ["src/interfaces/*"]
+		},
+		"typeRoots": ["./node_modules/@types", "./src/types"]
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "dist"]
+}
