@@ -1,6 +1,3 @@
-Here's a conventional README.md for your codebase:
-
-```markdown
 # Shopify API
 
 A robust e-commerce backend API built with Express.js, TypeScript, and MongoDB.
