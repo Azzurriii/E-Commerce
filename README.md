@@ -1,4 +1,4 @@
-# Shopify API
+# Ecommerce API
 
 A robust e-commerce backend API built with Express.js, TypeScript, and MongoDB.
 
