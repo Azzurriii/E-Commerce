@@ -19,7 +19,7 @@
 			"@helpers/*": ["src/helpers/*"],
 			"@middlewares/*": ["src/middlewares/*"],
 			"@models/*": ["src/models/*"],
-			"@router/*": ["src/router/*"],
+			"@routes/*": ["src/routes/*"],
 			"@socket/*": ["src/socket/*"],
 			"@types/*": ["src/types/*"],
 			"@utils/*": ["src/utils/*"],

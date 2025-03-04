@@ -1,23 +1,33 @@
 import { Schema, model } from 'mongoose';
-import { IReview } from '@interfaces/review';
+
 const DOCUMENT_NAME = 'Review';
 const COLLECTION_NAME = 'Reviews';
 
-const reviewSchema = new Schema<IReview>(
+const ReviewSchema = new Schema(
 	{
-		userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-		productId: {
+		user_id: {
 			type: Schema.Types.ObjectId,
-			ref: 'Products',
+			ref: 'User',
 			required: true,
 		},
-		rating: { type: Number, required: true, min: 1, max: 5 },
-		comment: { type: String },
+		product_id: {
+			type: Schema.Types.ObjectId,
+			ref: 'Product',
+			required: true,
+		},
+		rating: {
+			type: Number,
+			required: true,
+		},
+		comment: {
+			type: String,
+		},
 	},
 	{
 		timestamps: true,
+		collection: COLLECTION_NAME,
 	},
 );
 
-const Review = model(DOCUMENT_NAME, reviewSchema, COLLECTION_NAME);
+const Review = model(DOCUMENT_NAME, ReviewSchema);
 export default Review;

@@ -1,14 +1,14 @@
-const RoleUser = {
+export const RoleUser = {
 	USER: 'USER',
 	COMPANY: 'COMPANY',
 	ADMIN: 'ADMIN',
 	SUPER_ADMIN: 'SUPER_ADMIN',
-};
+} as const;
 
-const UserStatus = {
+export const UserStatus = {
 	ACTIVE: 'active',
 	INACTIVE: 'inactive',
-};
+} as const;
 
 export interface ISignUp {
 	name: string;

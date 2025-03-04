@@ -13,17 +13,11 @@ export interface ICategory {
 }
 
 export interface ICreateCategory {
-	img?: string;
-	parent: string;
-	children: string[];
-	productType: string;
-	description?: string;
+	name: string;
+	desc?: string;
 }
 
 export interface IUpdateCategory {
-	img?: string;
-	parent?: string;
-	children?: string[];
-	productType?: string;
-	description?: string;
+	name?: string;
+	desc?: string;
 }

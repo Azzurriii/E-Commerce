@@ -1,41 +1,16 @@
-import { Schema, model, Types } from 'mongoose';
-import { ICategory } from '@interfaces/category';
+import { Schema, model } from 'mongoose';
 
 const DOCUMENT_NAME = 'Category';
 const COLLECTION_NAME = 'Categories';
 
-const CategorySchema = new Schema<ICategory>(
+const categorySchema = new Schema(
 	{
-		img: {
-			type: String,
-			required: false,
-		},
-		parent: {
+		name: {
 			type: String,
 			required: true,
-			trim: true,
 		},
-		children: [{ type: String }],
-		productType: {
+		desc: {
 			type: String,
-			trim: true,
-			required: true,
-			lowercase: true,
-		},
-		description: {
-			type: String,
-			required: false,
-		},
-		products: [
-			{
-				type: Types.ObjectId,
-				ref: 'Products',
-			},
-		],
-		status: {
-			type: String,
-			enum: ['Show', 'Hide'],
-			default: 'Show',
 		},
 	},
 	{
@@ -44,6 +19,5 @@ const CategorySchema = new Schema<ICategory>(
 	},
 );
 
-const Category = model<ICategory>(DOCUMENT_NAME, CategorySchema);
-
+const Category = model(DOCUMENT_NAME, categorySchema);
 export default Category;

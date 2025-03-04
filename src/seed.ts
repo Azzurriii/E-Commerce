@@ -1,15 +1,23 @@
 import './configs/env';
 import './configs/db';
 import bcrypt from 'bcrypt';
-
 import User from './models/user.model';
 import ApiKey from './models/api-key.model';
 import KeyToken from './models/key-token.model';
 import { ObjectId } from 'mongodb';
-import { seedBrands } from './seeds/brands';
 import { seedProducts } from './seeds/products';
 import { seedCategories } from './seeds/categories';
 import { seedReviews } from './seeds/reviews';
+import { seedUserPayments } from './seeds/user-payments';
+import { seedUserAddresses } from './seeds/user-addresses';
+import { seedCarts } from './seeds/carts';
+import { seedCartItems } from './seeds/cart-items';
+import { seedOrders } from './seeds/orders';
+import { seedOrderItems } from './seeds/order-items';
+import { seedPayments } from './seeds/payments';
+import { seedDiscounts } from './seeds/discounts';
+import { seedInventories } from './seeds/inventories';
+
 const createSuperAdmin = async () => {
 	const superAdmin = await User.findById('67a36f76497df40e9471e299');
 	if (superAdmin) return;
@@ -69,10 +77,19 @@ const init = async () => {
 		await createApiKey();
 		await createUser();
 		await createKey();
-		await seedBrands();
 		await seedProducts();
 		await seedCategories();
 		await seedReviews();
+		await seedUserPayments();
+		await seedUserAddresses();
+		await seedCarts();
+		await seedCartItems();
+		await seedOrders();
+		await seedOrderItems();
+		await seedPayments();
+		await seedDiscounts();
+		await seedInventories();
+
 		console.log('✅ All seeding completed successfully');
 		process.exit(0);
 	} catch (error) {

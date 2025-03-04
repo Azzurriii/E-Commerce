@@ -3,7 +3,7 @@ import express, { Response, Request, NextFunction } from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
 import socketBE from './socket';
-import router from '@router/index';
+import router from '@routes/index';
 import configureMiddleware from '@configs/middleware';
 import '@configs/db';
 import '@configs/redis';

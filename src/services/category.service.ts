@@ -9,34 +9,10 @@ const addCategory = async (data: ICreateCategory) => {
 	return category;
 };
 
-// create all category service
-const addCategories = async (data: ICreateCategory[]) => {
-	const category = await Category.insertMany(data);
-	return category;
-};
-
-// get all show category service
-const getShowCategory = async () => {
-	const category = await Category.find({ status: 'Show' }).populate({
-		path: 'products',
-		model: Product,
-	});
-	return category;
-};
-
 // get all category
 const getCategories = async () => {
 	const category = await Category.find({});
 	return category;
-};
-
-// get type of category service
-const getCategoryType = async (param: string) => {
-	const categories = await Category.find({ productType: param }).populate({
-		path: 'products',
-		model: Product,
-	});
-	return categories;
 };
 
 // delete category
@@ -65,10 +41,7 @@ const getCategory = async (id: string) => {
 
 export default {
 	addCategory,
-	addCategories,
-	getShowCategory,
 	getCategories,
-	getCategoryType,
 	deleteCategory,
 	updateCategory,
 	getCategory,

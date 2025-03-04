@@ -1,17 +1,15 @@
 import User from '@models/user.model';
 import bcrypt from 'bcrypt';
 import crypto from 'node:crypto';
-import KeyTokenServices from './key-token.service';
+import KeyTokenServices from '@services/key-token.service';
 import UserConstants, { ISignUp } from '@interfaces/user';
 import AuthUtils from '@utils/auth.utils';
-import { getInfoData } from '../utils';
+import { getInfoData } from '@utils/index';
 import { BadRequestError, AuthFailureError, NotFoundError, FobbidenError } from '@handlers/response-handler';
 import UserServices from '@services/user.service';
 import { Types } from 'mongoose';
-import { getCache } from './redis.service';
-import { deleteCache } from './redis.service';
+import { getCache, deleteCache, setCache } from '@services/redis.service';
 import { generateRandomToken } from '@utils/token.utils';
-import { setCache } from './redis.service';
 import { emailQueue } from '@queues/email.queue';
 import { EmailTemplate } from '@constants/mail';
 

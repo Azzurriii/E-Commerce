@@ -9,35 +9,11 @@ const addCategory = async (req: Request, res: Response, next: NextFunction) => {
 	}).send(res);
 };
 
-// add all category
-const addCategories = async (req: Request, res: Response, next: NextFunction) => {
-	return new CREATED({
-		message: 'Categories created successfully',
-		data: await CategoryService.addCategories(req.body),
-	}).send(res);
-};
-
-// get all show category
-const getShowCategory = async (req: Request, res: Response, next: NextFunction) => {
-	return new OK({
-		message: 'Categories fetched successfully',
-		data: await CategoryService.getShowCategory(),
-	}).send(res);
-};
-
 // get all category
 const getCategories = async (req: Request, res: Response, next: NextFunction) => {
 	return new OK({
 		message: 'Categories fetched successfully',
 		data: await CategoryService.getCategories(),
-	}).send(res);
-};
-
-// get product type category
-const getProductTypeCategory = async (req: Request, res: Response, next: NextFunction) => {
-	return new OK({
-		message: 'Categories fetched successfully',
-		data: await CategoryService.getCategoryType(req.params.type),
 	}).send(res);
 };
 
@@ -67,10 +43,7 @@ const getCategory = async (req: Request, res: Response, next: NextFunction) => {
 
 export default {
 	addCategory,
-	addCategories,
-	getShowCategory,
 	getCategories,
-	getProductTypeCategory,
 	deleteCategory,
 	updateCategory,
 	getCategory,

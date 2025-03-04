@@ -3,15 +3,16 @@
 	"version": "1.0.0",
 	"license": "MIT",
 	"scripts": {
-		"dev": "npm run data:import:dev && npm run format && cross-env NODE_ENV=dev nodemon -r tsconfig-paths/register src/index.ts",
+		"dev": " npm run format && cross-env NODE_ENV=dev nodemon -r tsconfig-paths/register src/index.ts",
 		"build": "npm run format && cross-env NODE_ENV=prod tsc && tsc-alias",
-		"start": "cross-env NODE_ENV=prod node dist/index.js",
+		"start": "cross-env NODE_ENV=prod node -r tsconfig-paths/register -r ts-node/register/transpile-only dist/index.js",
 		"format": "prettier --write \"**/*.{ts,js,json}\" && eslint src/**/*.ts",
 		"test": "jest",
 		"prepare": "husky install",
 		"data:import:dev": "ts-node -r tsconfig-paths/register src/seed.ts",
 		"data:import:prod": "node dist/seed.js",
-		"worker:email": "ts-node -r tsconfig-paths/register src/workers/email.worker.ts"
+		"worker:email": "ts-node -r tsconfig-paths/register src/workers/email.worker.ts",
+		"create:endpoint": "chmod +x create-endpoint.sh && ./create-endpoint.sh"
 	},
 	"dependencies": {
 		"@bull-board/api": "^6.7.7",
@@ -25,6 +26,7 @@
 		"cloudinary": "^2.5.1",
 		"compression": "^1.7.4",
 		"cookie-parser": "^1.4.7",
+		"cors": "^2.8.5",
 		"cross-env": "^7.0.3",
 		"dayjs": "^1.11.13",
 		"dotenv": "^16.4.5",
@@ -43,6 +45,7 @@
 		"prettier": "^3.3.3",
 		"redis": "^4.7.0",
 		"socket.io": "^4.8.0",
+		"stripe": "^17.7.0",
 		"swagger-jsdoc": "^6.2.8",
 		"swagger-ui-express": "^5.0.1",
 		"validator": "^13.12.0",

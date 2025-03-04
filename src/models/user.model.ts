@@ -1,5 +1,5 @@
 import { model, Schema } from 'mongoose';
-import UserConstants from '@interfaces/user';
+import { UserStatus, RoleUser } from '@interfaces/user';
 import validator from 'validator';
 
 const DOCUMENT_NAME = 'User';
@@ -29,8 +29,8 @@ const UserSchema = new Schema(
 		},
 		status: {
 			type: String,
-			enum: Object.values(UserConstants.UserStatus),
-			default: UserConstants.UserStatus.INACTIVE,
+			enum: Object.values(UserStatus),
+			default: UserStatus.INACTIVE,
 			required: true,
 		},
 		verified: {

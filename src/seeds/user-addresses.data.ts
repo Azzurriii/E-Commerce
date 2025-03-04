@@ -1,0 +1,48 @@
+const userAddressesData = [
+	{
+		_id: '67a36f77497df40e9471e2a4',
+		user_id: '67a36f77497df40e9471e2a1',
+		address_line1: '123 Main Street',
+		address_line2: 'Apt 4B',
+		city: 'New York',
+		postal_code: '10001',
+		country: 'United States',
+		telephone: '+12125551234',
+		mobile: '+19175557890',
+	},
+	{
+		_id: '67a36f77497df40e9471e2a5',
+		user_id: '67a36f77497df40e9471e2a1',
+		address_line1: '456 Work Avenue',
+		address_line2: 'Floor 3',
+		city: 'New York',
+		postal_code: '10002',
+		country: 'United States',
+		telephone: '+12125559876',
+		mobile: '+19175557890',
+	},
+	{
+		_id: '67c3ebd4ae7c6789e7907d96',
+		user_id: '67c3ebd4ae7c6789e7907d93',
+		address_line1: '789 Oak Street',
+		address_line2: '',
+		city: 'Los Angeles',
+		postal_code: '90001',
+		country: 'United States',
+		telephone: '+13105551234',
+		mobile: '+13235557890',
+	},
+	{
+		_id: '67c3ebd4ae7c6789e7907d97',
+		user_id: '67c3ebd4ae7c6789e7907d93',
+		address_line1: '321 Pine Avenue',
+		address_line2: 'Suite 500',
+		city: 'San Francisco',
+		postal_code: '94101',
+		country: 'United States',
+		telephone: '+14155559876',
+		mobile: '+14155557890',
+	},
+];
+
+export default userAddressesData;

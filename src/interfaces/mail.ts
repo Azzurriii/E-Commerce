@@ -1,4 +1,4 @@
-import { EmailTemplate } from '../constants/mail';
+import { EmailTemplate } from '@constants/mail';
 
 export interface EmailData {
 	to: string;

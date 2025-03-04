@@ -1,42 +1,49 @@
+import ReviewService from '@services/review.service';
 import { Request, Response, NextFunction } from 'express';
 import { CREATED, OK } from '@handlers/response-handler';
-import ReviewService from '@services/review.service';
-import { IGetReviews } from '@interfaces/review';
-// add a review
-const addReview = async (req: Request, res: Response, next: NextFunction) => {
+
+const createReview = async (req: Request, res: Response, next: NextFunction) => {
+	const { user_id, product_id, rating, comment } = req.body;
+	const review = await ReviewService.createReview({ user_id, product_id, rating, comment });
 	return new CREATED({
-		message: 'Review added successfully',
-		data: await ReviewService.addReview(req.body),
+		message: 'Review created successfully',
+		data: review,
 	}).send(res);
 };
 
-// get reviews
 const getReviews = async (req: Request, res: Response, next: NextFunction) => {
+	const page = Number(req.query.page) || 1;
+	const limit = Number(req.query.limit) || 10;
+	const reviews = await ReviewService.getReviews(page, limit);
+
 	return new OK({
 		message: 'Reviews fetched successfully',
-		data: await ReviewService.getReviews(req.query as unknown as IGetReviews),
+		data: reviews,
 	}).send(res);
 };
 
-// update a review
-const updateReview = async (req: Request, res: Response, next: NextFunction) => {
+const getReviewByRating = async (req: Request, res: Response, next: NextFunction) => {
+	const page = Number(req.query.page) || 1;
+	const limit = Number(req.query.limit) || 10;
+	const rating = Number(req.params.rating);
+	const reviews = await ReviewService.getReviewByRating(rating, page, limit);
+
 	return new OK({
-		message: 'Review updated successfully',
-		data: await ReviewService.updateReview(req.params.id, req.body),
+		message: 'Reviews fetched successfully',
+		data: reviews,
 	}).send(res);
 };
 
-// delete a review
-const deleteReviews = async (req: Request, res: Response, next: NextFunction) => {
+const getReviewByProductId = async (req: Request, res: Response, next: NextFunction) => {
+	const productId = req.params.productId;
+	const page = Number(req.query.page) || 1;
+	const limit = Number(req.query.limit) || 10;
+	const reviews = await ReviewService.getReviewByProductId(productId, page, limit);
+
 	return new OK({
-		message: 'All reviews deleted for the product',
-		data: await ReviewService.deleteReviews(req.params.productId),
+		message: 'Reviews fetched successfully',
+		data: reviews,
 	}).send(res);
 };
 
-export default {
-	addReview,
-	deleteReviews,
-	getReviews,
-	updateReview,
-};
+export default { createReview, getReviews, getReviewByRating, getReviewByProductId };
