@@ -2,21 +2,21 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Cài đặt dependencies
+# Install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Sao chép mã nguồn
+# Copy source code
 COPY . .
 
-# Biến môi trường
+# Environment variable
 ENV NODE_ENV=production
 
 # Build
 RUN npm run build
 
-# Mở cổng
+# Open port
 EXPOSE 8000
 
-# Chạy ở chế độ production
+# Run in production mode
 CMD ["npm", "run", "start"]
