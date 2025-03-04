@@ -15,7 +15,7 @@ configureMiddleware(app);
 
 const server = http.createServer(app);
 const io = new Server(server);
-io.on('connection', (socket) => socketBE.init({ socket, io }));
+io.on('connection', (socket: any) => socketBE.init({ socket, io }));
 
 app.set('io', io);
 app.use('/', router());
